@@ -1,0 +1,291 @@
+/* 공통 스타일 */
+body {
+    background-color: skyblue; /* 배경색 설정 */
+    margin: 0; /* 기본 마진 제거 */
+    font-family: 'Arial', sans-serif; /* 기본 폰트 설정 */
+}
+
+.App {
+    max-width: 600px; /* 최대 너비 설정 */
+    margin: 0 auto; /* 중앙 정렬 */
+    background: #fff; /* 배경색 설정 */
+    border-radius: 8px; /* 모서리 둥글게 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+    padding: 20px; /* 내부 여백 */
+    min-height: 100vh; /* 페이지 전체를 차지하도록 설정 */
+    text-align: center; /* 중앙 정렬 */
+}
+
+.header {
+    display: flex; /* 플렉스 박스 사용 */
+    justify-content: space-between; /* 공간 분배 */
+    align-items: center; /* 수직 정렬 */
+    margin-bottom: 20px; /* 하단 여백 */
+    padding: 10px 0; /* 상하 패딩 */
+    background-color: #f1f1f1; /* 헤더 배경색 */
+}
+
+/* 에러 메시지 스타일 */
+.error {
+    color: red; /* 에러 메시지 색상 */
+}
+
+/* 버튼 스타일 */
+button {
+    font-family: 'Noto Sans', sans-serif; /* 고딕체 폰트 패밀리 설정 */
+    font-size: 16px; /* 폰트 크기 설정 */
+    padding: 10px 20px; /* 버튼 내부 여백 */
+    margin: 5px; /* 버튼 간 간격 */
+    border: none; /* 기본 테두리 제거 */
+    border-radius: 5px; /* 모서리 둥글게 */
+    cursor: pointer; /* 마우스 커서 변경 */
+    background-color: #007bff; /* 기본 버튼 배경색 (블루) */
+    color: white; /* 기본 텍스트 색상 (흰색) */
+    transition: background-color 0.3s ease; /* 배경색 변경 애니메이션 */
+}
+
+button:hover {
+    background-color: #0056b3; /* 호버 시 배경색 변경 (어두운 블루) */
+}
+
+button:active {
+    background-color: #004085; /* 클릭 시 배경색 변경 (더 어두운 블루) */
+}
+
+/* 로그인 폼 스타일 */
+.login-form {
+    display: flex;
+    flex-direction: row; /* 수평으로 나열 */
+    justify-content: center; /* 중앙 정렬 */
+    align-items: center; /* 수직 중앙 정렬 */
+    gap: 20px; /* 입력 필드 사이의 간격 설정 */
+}
+
+/* 입력 필드 스타일 */
+.login-form input {
+    padding: 10px; /* 패딩 */
+    width: 200px; /* 입력 필드 너비 설정 */
+    height: 40px; /* 입력 필드 높이 설정 */
+    font-size: 16px; /* 글자 크기 조정 */
+    border: 1px solid #101010; /* 테두리 스타일 */
+    border-radius: 5px; /* 모서리 둥글게 */
+}
+
+/* 버튼 클래스 스타일 */
+.primary-button {
+    background-color: #4CAF50; /* 기본 버튼 색상 (녹색) */
+    color: white; /* 텍스트 색상 */
+}
+
+.primary-button:hover {
+    background-color: #45a049; /* 호버 시 배경색 변경 (더 밝은 녹색) */
+}
+
+.secondary-button {
+    background-color: #008CBA; /* 기본 버튼 색상 (파란색) */
+}
+
+.secondary-button:hover {
+    background-color: #007B9E; /* 호버 시 배경색 변경 (더 어두운 파란색) */
+}
+
+.back-button {
+    background-color: #f44336; /* 기본 버튼 색상 (빨간색) */
+}
+
+.back-button:hover {
+    background-color: #e53935; /* 호버 시 배경색 변경 (더 어두운 빨간색) */
+}
+
+/* 확인 메시지 스타일 */
+.confirmation-message {
+    color: #4CAF50; /* 확인 메시지 색상 */
+}
+
+/* 알림 목록 스타일 */
+.notification-list {
+    max-height: 300px; /* 최대 높이 설정 */
+    overflow-y: auto; /* 세로 스크롤 가능 */
+}
+
+.notification {
+    background-color: #f0f0f0; /* 알림 배경색 */
+    border: 1px solid #ddd; /* 테두리 스타일 */
+    border-radius: 4px; /* 모서리 둥글게 */
+    padding: 10px; /* 패딩 */
+    margin: 5px 0; /* 여백 */
+}
+
+/* 방문자 이미지 스타일 */
+.visitor-image {
+    width: 50px; /* 이미지 너비 */
+    height: 50px; /* 이미지 높이 */
+    margin-left: 10px; /* 왼쪽 여백 */
+}
+
+/* 텍스트 입력 필드 스타일 */
+.text-input, .email-input, .password-input {
+    width: 100%; /* 전체 폭 (부모 요소에 따라) */
+    height: 40px; /* 높이 설정 */
+    padding: 10px; /* 패딩 */
+    margin: 5px 0; /* 여백 */
+    border: 1px solid #ccc; /* 테두리 스타일 */
+    border-radius: 5px; /* 모서리 둥글게 */
+    font-size: 16px; /* 글자 크기 */
+    color: #333; /* 텍스트 색상 */
+    background-color: #f9f9f9; /* 배경색 */
+    transition: border-color 0.3s; /* 테두리 색상 변화 애니메이션 */
+}
+
+.text-input:focus, .email-input:focus, .password-input:focus {
+    border-color: #007bff; /* 포커스 시 테두리 색상 변경 (파란색) */
+    outline: none; /* 기본 아웃라인 제거 */
+    background-color: #fff; /* 포커스 시 배경색 변경 */
+}
+
+/* 스피너 스타일 */
+.spinner {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    margin: 100px auto;
+}
+
+.double-bounce1, .double-bounce2 {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #333;
+    opacity: 0.6;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: sk-bounce 2.0s infinite ease-in-out;
+}
+
+.double-bounce2 {
+    animation-delay: -1.0s;
+}
+
+@keyframes sk-bounce {
+    0%, 100% {
+        transform: scale(0.0);
+    }
+    50% {
+        transform: scale(1.0);
+    }
+}
+
+/* 페이지 전환 애니메이션 */
+.fade-enter {
+    opacity: 0;
+}
+.fade-enter-active {
+    opacity: 1;
+    transition: opacity 300ms;
+}
+.fade-exit {
+    opacity: 1;
+}
+.fade-exit-active {
+    opacity: 0;
+    transition: opacity 300ms;
+}
+
+/* 버튼 스타일 */
+.button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: blue; /* 호버 시 배경색 변경 */
+}
+
+/* 링크 스타일 */
+a {
+    color: #007bff; /* 기본 링크 색상 */
+    text-decoration: none; /* 밑줄 제거 */
+    transition: color 0.3s; /* 색상 변화 애니메이션 */
+}
+
+a:hover {
+    color: #0056b3; /* 호버 시 색상 변경 */
+    text-decoration: underline; /* 호버 시 밑줄 추가 */
+}
+
+/* 카드 스타일 */
+.card {
+    background-color: #fff; /* 카드 배경색 */
+    border: 1px solid #ddd; /* 카드 테두리 */
+    border-radius: 5px; /* 카드 모서리 둥글게 */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 카드 그림자 */
+    padding: 15px; /* 카드 내부 여백 */
+    margin: 10px 0; /* 카드 간 여백 */
+}
+
+/* 모달 스타일 */
+.modal {
+    background-color: rgba(0, 0, 0, 0.7); /* 모달 배경 반투명 */
+    display: flex; /* 모달 중앙 정렬 */
+    justify-content: center; /* 중앙 정렬 */
+    align-items: center; /* 수직 중앙 정렬 */
+    position: fixed; /* 고정 위치 */
+    top: 0; /* 상단 정렬 */
+    left: 0; /* 왼쪽 정렬 */
+    width: 100vw; /* 전체 너비 */
+    height: 100vh; /* 전체 높이 */
+    z-index: 1000; /* 모달이 다른 콘텐츠 위에 표시되도록 설정 */
+}
+
+.modal-content {
+    background-color: #fff; /* 모달 내용 배경색 */
+    border-radius: 8px; /* 모달 내용 모서리 둥글게 */
+    padding: 20px; /* 내부 여백 */
+    width: 300px; /* 모달 내용 너비 */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* 모달 내용 그림자 */
+}
+
+.modal-close {
+    cursor: pointer; /* 닫기 버튼에 커서 변경 */
+    color: #ff0000; /* 닫기 버튼 색상 */
+    float: right; /* 오른쪽 정렬 */
+}
+
+/* 알림 배경색 */
+.notification-info {
+    background-color: #d1ecf1; /* 정보 알림 배경색 */
+    border-color: #bee5eb; /* 정보 알림 테두리색 */
+}
+
+.notification-warning {
+    background-color: #fff3cd; /* 경고 알림 배경색 */
+    border-color: #ffeeba; /* 경고 알림 테두리색 */
+}
+
+.notification-error {
+    background-color: #f8d7da; /* 에러 알림 배경색 */
+    border-color: #f5c6cb; /* 에러 알림 테두리색 */
+}
+
+.notification-success {
+    background-color: #d4edda; /* 성공 알림 배경색 */
+    border-color: #c3e6cb; /* 성공 알림 테두리색 */
+}
+
+/* 로딩 스피너 개선 */
+.spinner-container {
+    display: flex; /* 스피너 컨테이너에 플렉스 박스 사용 */
+    justify-content: center; /* 중앙 정렬 */
+    align-items: center; /* 수직 중앙 정렬 */
+    height: 100vh; /* 화면 전체를 차지하도록 설정 */
+}
+
+

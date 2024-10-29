@@ -1,0 +1,21 @@
+/* BackHeader.css */
+.back-header {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 10; /* 다른 요소 위에 위치 */
+}
+
+.back-button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.back-button:hover {
+    background-color: #2980b9; /* 호버 시 색상 변경 */
+}

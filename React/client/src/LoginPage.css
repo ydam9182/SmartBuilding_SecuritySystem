@@ -1,0 +1,151 @@
+/* 전체 로그인 페이지 스타일 */
+.LoginPage {
+  max-width: none !important;
+  background: linear-gradient(to bottom, #f0f0f0, #ffffff); /* 그라데이션 배경 */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  align-items: center;
+  @font-face {
+    font-family: 'TTLaundryGothicB';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2403-2@1.0/TTLaundryGothicB.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+  color: gray;
+  justify-content: center;
+  padding: 130px 80px;
+  height: 40vh; /* 전체 높이를 사용하여 중앙 정렬 */
+  transition: background-color 0.5s ease; /* 배경색 변화 애니메이션 */
+  animation: fadeIn 0.5s; /* 애니메이션 추가 */
+}
+
+@media (max-width: 991px) {
+  .LoginPage {
+    padding: 100px 20px;
+  }
+}
+
+/* 로그인 컨테이너 스타일 */
+.LoginContainer {
+  border-radius: 30px;
+  background-color: #fff;
+  box-shadow: 0 0 17px 7px rgba(128, 122, 130, 0.43);
+  display: flex;
+  width: 100px;
+  max-width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 75px;
+  transition: transform 0.3s ease; /* 변형 애니메이션 */
+}
+
+.LoginContainer:hover {
+  transform: translateY(-5px); /* 마우스 오버 시 살짝 떠오르는 효과 */
+}
+
+@media (max-width: 991px) {
+  .LoginContainer {
+    padding: 0 20px;
+  }
+}
+
+/* 로그인 폼 스타일 */
+.loginForm {
+  display: flex;
+  width: 100%; /* 100% 너비로 설정 */
+  max-width: 230px; /* 최대 너비 설정 */
+  flex-direction: column; /* 수직 정렬 */
+  align-items: center; /* 중앙 정렬 */
+  flex-direction: column;
+  padding: 20px; /* 내부 여백 */
+  border: 1px solid gray; /* 테두리 */
+  border-radius: 5px; /* 둥근 모서리 */
+  background-color: #f9f9f9; /* 배경 색상 */
+}
+
+/* 로그인 제목 스타일 */
+.loginTitle {
+  color: #000;
+  font-size: 60px;
+  font-weight: 500;
+  text-align: center;
+  align-self: center;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* 제목에 그림자 효과 */
+}
+
+/* 입력 레이블 스타일 */
+.inputLabel {
+  font-size: 20px;
+  font-weight: 350;
+  align-self: start;
+  margin-top: 30px;
+  color: #333; /* 텍스트 색상 */
+}
+
+/* 입력 필드 스타일 */
+.inputField {
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  margin-top: 3px;
+  font-size: 16px;
+  color: #333; /* 텍스트 색상 */
+  font-weight: 53;
+  text-align: center;
+  padding: 10px 16px; /* 좌우 패딩을 통일하여 크기 조정 */
+  border: 1px solid gray;
+  width: 100%; /* 너비를 100%로 설정하여 컨테이너에 맞춤 */
+  max-width: 220px; /* 최대 너비 설정 */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* 애니메이션 추가 */
+  height: auto; /* 높이는 자동으로 조정 */
+  min-height: 43px; /* 최소 높이 설정 */
+  box-sizing: border-box; /* 패딩과 테두리를 포함하여 크기 계산 */
+}
+
+.inputField:focus {
+  border-color: white; /* 포커스 시 테두리 색상 */
+  outline: none; /* 기본 아웃라인 제거 */
+  box-shadow: 0 0 10px rgba(128, 122, 130, 0.43); /* 포커스 시 그림자 */
+}
+
+/* 버튼을 포함하는 컨테이너 스타일 */
+.buttonContainer {
+  display: flex; /* 플렉스 박스 사용 */
+  justify-content: center; /* 수평 중앙 정렬 */
+  align-items: center; /* 수직 중앙 정렬 */
+  width: 85%; /* 전체 너비 */
+}
+
+.submitButton {
+  margin-top: 20px; /* 버튼 간격 */
+  font-family:'Blackletter','Gothic', sans-serif;
+  font-size: 25px; /* 글씨 크기 조정 */
+  border: none; /* 테두리 없음 */
+  background: linear-gradient(180deg, #ff7e5f, #feb47b); /* 새로운 그라데이션 배경 */
+  color: whitesmoke; /* 텍스트 색상 */
+  padding: 12px 20px; /* 버튼 패딩 조정 */
+  border-radius: 5px; /* 테두리 둥글게 */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease; /* 애니메이션 효과 */
+  width: 100%; /* 버튼 너비를 전체 폼에 맞춤 */
+}
+
+.submitButton:hover {
+  background: linear-gradient(90deg, #007bb5, #4fb0ff); /* hover 시 그라데이션 반전 */
+  transform: scale(1.05); /* 버튼 크기 증가 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 그림자 추가 */
+}
+
+
+/* 애니메이션 효과 정의 */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+
+
+
+
+

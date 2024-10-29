@@ -1,0 +1,35 @@
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.visitor-log-list {
+    margin-top: 20px; /* 상단 여백 */
+}
+
+
+li {
+    background-color: #fff;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center; /* 수직 정렬 */
+    justify-content: space-between;
+    position: relative;
+}
+
+.deimg {
+    width: 600px;
+    height: 300px;
+    border-radius: 5%;
+    object-fit: cover;
+    justify-content: space-between;
+    margin-left: 15px;
+    transition: transform 0.3s ease;
+}
+
+.deimg:hover {
+    transform: scale(1.1);
+}
