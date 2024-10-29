@@ -1,0 +1,52 @@
+https://blog.naver.com/newspacekor/222763826103
+https://blog.naver.com/kwy1052aa/222730775066
+
+
+Description:	Ubuntu 18.04.6 LTS
+Release:	18.04
+
+Python3 3.6.9
+python 2.7.0
+OpenCV 4-5-0
+
+
+https://github.com/Qengineering/Install-OpenCV-Jetson-Nano opencv git
+
+
+jetpack 4.6.5
+4.5.0 reason
+
+
+ver1
+lbph + cascade
+ver2
+lbph + dnn
+ver3
+cnn + dnn
+
+facenet ,arcface = jetson nano X
+
+export OPENBLAS_CORETYPE=ARMV8 python
+http://jinyongjeong.github.io/2016/06/06/bash_shell_environment_variable/
+
+1920x1080 display
+xrandr --output HDMI-0 --mode 1920x1080
+1920x1080     
+  
+
+
+
+cameratest1, cameratest3 gstreamer pipeline 
+cameratest3-1 2 display
+cameratest3-2 2 display , full screen
+cameratest3-3 2 display , full screen , conn server
+cameratest3-3 2 display , full screen , conn server , reci code
+
+cameratest 3-6 recive code x
+cameratest 3-6 use threading 
+
+dnn
+DNN(Deep Neural Network)
+
+ROOM_201:failure captute
+FR:room201:capture:{img_path}
