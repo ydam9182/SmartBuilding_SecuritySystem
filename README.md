@@ -2,7 +2,7 @@
 
 ## 하드웨어 구성도
 <img src = "https://github.com/user-attachments/assets/9384605b-7ab4-4998-8b3f-5787241844e6" width="55%" height="55%">
-<img src = "https://github.com/user-attachments/assets/cf2842a1-de05-4e66-b96a-5239b828aab2" width="45%" height="45%">
+<img src = "https://github.com/user-attachments/assets/cf2842a1-de05-4e66-b96a-5239b828aab2" width="44%" height="44%">
 
 ## 시스템 구성도
 <img src = "https://github.com/user-attachments/assets/de16e779-babc-4d73-aab6-fff3196a56a6" width="100%" height="100%">
