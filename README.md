@@ -1,1 +1,1 @@
-![header](https://capsule-render.vercel.app/api?type=waving&color=auto&height=250&section=header&text=SmartBuilding-n-securitysystem&fontSize=40)
+![header](https://capsule-render.vercel.app/api?type=waving&color=blue&height=250&section=header&text=SmartBuilding%Securitysystem&fontSize=40)
