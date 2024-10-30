@@ -5,3 +5,4 @@
 
   
 # 파일이미지
+![3D_figures](https://github.com/user-attachments/assets/3f712766-acf3-44ac-9f1d-4329dcb2a55a)
