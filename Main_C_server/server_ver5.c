@@ -8,31 +8,31 @@
 #include <mysql/mysql.h>
 
 typedef struct RoomNode {
-    char room_number[10];  // ¹æ ¹øÈ£
-    int esp_sock;          // ESP32 ¼ÒÄÏ
-    int fr_sock;           // FR ¼ÒÄÏ
-    struct RoomNode* next; // ´ÙÀ½ ³ëµå Æ÷ÀÎÅÍ
+    char room_number[10];  // ë°© ë²ˆí˜¸
+    int esp_sock;          // ESP32 ì†Œì¼“
+    int fr_sock;           // FR ì†Œì¼“
+    struct RoomNode* next; // ë‹¤ìŒ ë…¸ë“œ í¬ì¸í„°
 } RoomNode;
 
-//µ¥ÀÌÅÍº£ÀÌ½º ¿¬°á
+//ë°ì´í„°ë² ì´ìŠ¤ ì—°ê²°
 char* server = "localhost";
 char* user = "admin";
 char* password = "1234";
 char* database = "SmartBuilding";
 
-RoomNode* room_table = NULL; // ¹æ ¸ñ·ÏÀÇ ½ÃÀÛ Æ÷ÀÎÅÍ
-pthread_mutex_t room_table_mutex; // ¹æ ¸ñ·Ï¿¡ ´ëÇÑ ¹ÂÅØ½º
-pthread_mutex_t capture_mutex; // Ä¸Ã³ ¿äÃ»¿¡ ´ëÇÑ ¹ÂÅØ½º
+RoomNode* room_table = NULL; // ë°© ëª©ë¡ì˜ ì‹œìž‘ í¬ì¸í„°
+pthread_mutex_t room_table_mutex; // ë°© ëª©ë¡ì— ëŒ€í•œ ë®¤í…ìŠ¤
+pthread_mutex_t capture_mutex; // ìº¡ì²˜ ìš”ì²­ì— ëŒ€í•œ ë®¤í…ìŠ¤
 
 #define BUF_SIZE 256
 #define PORT 9000
 
-// Å¬¶óÀÌ¾ðÆ® Å¸ÀÔ Á¤ÀÇ
+// í´ë¼ì´ì–¸íŠ¸ íƒ€ìž… ì •ì˜
 #define CLIENT_TYPE_ESP 1
 #define CLIENT_TYPE_FR 2
 #define CLIENT_TYPE_WEB 3
 
-//ÇÔ¼ö ¼±¾ðºÎ
+//í•¨ìˆ˜ ì„ ì–¸ë¶€
 RoomNode* create_room_node(const char* room_number);
 RoomNode* find_room_node(const char* room_number);
 void add_room_node(RoomNode* new_node);
@@ -44,7 +44,7 @@ void save_image_path(MYSQL* conn, const char* image_path, const char* room_numbe
 void change_password(MYSQL* conn, const char* pw, const char* room_number);
 
 int main() {
-    room_table = NULL; // ¹æ ¸ñ·Ï ÃÊ±âÈ­
+    room_table = NULL; // ë°© ëª©ë¡ ì´ˆê¸°í™”
     pthread_mutex_init(&room_table_mutex, NULL);
     pthread_mutex_init(&capture_mutex, NULL);
     struct sockaddr_in server_addr;
@@ -93,7 +93,7 @@ int main() {
     return 0;
 }
 
-// »õ·Î¿î ¹æ ³ëµå¸¦ »ý¼ºÇÏ´Â ÇÔ¼ö
+// ìƒˆë¡œìš´ ë°© ë…¸ë“œë¥¼ ìƒì„±í•˜ëŠ” í•¨ìˆ˜
 RoomNode* create_room_node(const char* room_number) {
     RoomNode* new_node = (RoomNode*)malloc(sizeof(RoomNode));
     strcpy(new_node->room_number, room_number);
@@ -103,32 +103,32 @@ RoomNode* create_room_node(const char* room_number) {
     return new_node;
 }
 
-// ¹æ ¹øÈ£·Î ¹æ ³ëµå¸¦ Ã£´Â ÇÔ¼ö
+// ë°© ë²ˆí˜¸ë¡œ ë°© ë…¸ë“œë¥¼ ì°¾ëŠ” í•¨ìˆ˜
 RoomNode* find_room_node(const char* room_number) {
-    pthread_mutex_lock(&room_table_mutex); // ¹æ ¸ñ·Ï ¹ÂÅØ½º Àá±Ý
+    pthread_mutex_lock(&room_table_mutex); // ë°© ëª©ë¡ ë®¤í…ìŠ¤ ìž ê¸ˆ
     RoomNode* current = room_table;
     while (current != NULL) {
         if (strcmp(current->room_number, room_number) == 0) {
-            pthread_mutex_unlock(&room_table_mutex); // Àá±Ý ÇØÁ¦
+            pthread_mutex_unlock(&room_table_mutex); // ìž ê¸ˆ í•´ì œ
             return current;
         }
         current = current->next;
     }
-    pthread_mutex_unlock(&room_table_mutex); // Àá±Ý ÇØÁ¦
+    pthread_mutex_unlock(&room_table_mutex); // ìž ê¸ˆ í•´ì œ
     return NULL;
 }
 
-// ¹æ ³ëµå¸¦ ¹æ ¸ñ·Ï¿¡ Ãß°¡ÇÏ´Â ÇÔ¼ö
+// ë°© ë…¸ë“œë¥¼ ë°© ëª©ë¡ì— ì¶”ê°€í•˜ëŠ” í•¨ìˆ˜
 void add_room_node(RoomNode* new_node) {
-    pthread_mutex_lock(&room_table_mutex); // ¹æ ¸ñ·Ï ¹ÂÅØ½º Àá±Ý
+    pthread_mutex_lock(&room_table_mutex); // ë°© ëª©ë¡ ë®¤í…ìŠ¤ ìž ê¸ˆ
     new_node->next = room_table;
     room_table = new_node;
-    pthread_mutex_unlock(&room_table_mutex); // Àá±Ý ÇØÁ¦
+    pthread_mutex_unlock(&room_table_mutex); // ìž ê¸ˆ í•´ì œ
 }
 
-// ¹æ ³ëµå¸¦ »èÁ¦ÇÏ°í ¸Þ¸ð¸® ÇØÁ¦
+// ë°© ë…¸ë“œë¥¼ ì‚­ì œí•˜ê³  ë©”ëª¨ë¦¬ í•´ì œ
 void delete_room_node(const char* room_number) {
-    pthread_mutex_lock(&room_table_mutex); // ¹æ ¸ñ·Ï ¹ÂÅØ½º Àá±Ý
+    pthread_mutex_lock(&room_table_mutex); // ë°© ëª©ë¡ ë®¤í…ìŠ¤ ìž ê¸ˆ
     RoomNode* current = room_table;
     RoomNode* prev = NULL;
 
@@ -138,19 +138,19 @@ void delete_room_node(const char* room_number) {
                 prev->next = current->next;
             }
             else {
-                room_table = current->next; // Ã¹ ¹øÂ° ³ëµå »èÁ¦
+                room_table = current->next; // ì²« ë²ˆì§¸ ë…¸ë“œ ì‚­ì œ
             }
-            free(current); // ¸Þ¸ð¸® ÇØÁ¦
+            free(current); // ë©”ëª¨ë¦¬ í•´ì œ
             break;
         }
         prev = current;
         current = current->next;
     }
-    pthread_mutex_unlock(&room_table_mutex); // Àá±Ý ÇØÁ¦
+    pthread_mutex_unlock(&room_table_mutex); // ìž ê¸ˆ í•´ì œ
 }
 
 void handle_web_message(int client_sock, char* message, MYSQL* conn) {
-    // À¥¼­¹ö Ã³¸®
+    // ì›¹ì„œë²„ ì²˜ë¦¬
     char room_number[BUF_SIZE] = { 0 };
     char status[BUF_SIZE] = { 0 };
     char pw[BUF_SIZE] = { 0 };
@@ -161,7 +161,7 @@ void handle_web_message(int client_sock, char* message, MYSQL* conn) {
         printf("Not found room %s.\n", room_number);
         return;
     }
-    // À¥ ¼­¹ö¿¡¼­ ¿Â ½ÅÈ£ Ã³¸®
+    // ì›¹ ì„œë²„ì—ì„œ ì˜¨ ì‹ í˜¸ ì²˜ë¦¬
     if (strcmp(status, "open") == 0) {
         printf("WEB : room %s opened sign.\n", room_number);
         int esp_sock = room_node->esp_sock;
@@ -179,7 +179,7 @@ void handle_web_message(int client_sock, char* message, MYSQL* conn) {
     }
 }
 
-// ¸Þ½ÃÁö¸¦ Ã³¸®ÇÏ´Â ÇÔ¼ö
+// ë©”ì‹œì§€ë¥¼ ì²˜ë¦¬í•˜ëŠ” í•¨ìˆ˜
 void handle_message(const char* room_number, int client_sock, char* message, MYSQL* conn, int client_type) {
     RoomNode* room_node = find_room_node(room_number);
     if (!room_node) {
@@ -187,7 +187,7 @@ void handle_message(const char* room_number, int client_sock, char* message, MYS
         return;
     }
 
-    if (client_type == CLIENT_TYPE_ESP) {  // ESP32 Ã³¸®
+    if (client_type == CLIENT_TYPE_ESP) {  // ESP32 ì²˜ë¦¬
         char status[BUF_SIZE] = { 0 };
         sscanf(message, "ESP32:room_%*[^:]:%[^:]", status);
 
@@ -195,7 +195,7 @@ void handle_message(const char* room_number, int client_sock, char* message, MYS
             printf("ESP32: room %s fail password. FR capture request...\n", room_number);
             int fr_sock = room_node->fr_sock;
             if (fr_sock > 0) {
-                pthread_mutex_lock(&capture_mutex); // µ¿½Ã ¿äÃ» ¹æÁö
+                pthread_mutex_lock(&capture_mutex); // ë™ì‹œ ìš”ì²­ ë°©ì§€
                 char capture_request_msg[BUF_SIZE];
                 snprintf(capture_request_msg, sizeof(capture_request_msg), "FR:room_%s:request_capture", room_number);
                 write(fr_sock, capture_request_msg, strlen(capture_request_msg));
@@ -206,14 +206,14 @@ void handle_message(const char* room_number, int client_sock, char* message, MYS
             }
         }
     }
-    else if (client_type == CLIENT_TYPE_FR) {  // FR Ã³¸®
+    else if (client_type == CLIENT_TYPE_FR) {  // FR ì²˜ë¦¬
         char status[BUF_SIZE] = { 0 };
         char image_path[BUF_SIZE] = { 0 };
         sscanf(message, "FR:room_%*[^:]:%[^:]:%s", status, image_path);
 
         if (strcmp(status, "failure") == 0) {
             printf("FR: room %s fail face recognition. to ESP32 send signal...\n", room_number);
-            // ESP32·Î ½ÇÆÐ ½ÅÈ£ Àü¼Û
+            // ESP32ë¡œ ì‹¤íŒ¨ ì‹ í˜¸ ì „ì†¡
             int esp_sock = room_node->esp_sock;
             if (esp_sock > 0) {
                 char failure_msg[BUF_SIZE];
@@ -243,7 +243,7 @@ void handle_message(const char* room_number, int client_sock, char* message, MYS
 
 }
 
-// Å¬¶óÀÌ¾ðÆ® ÇÚµé·¯ ÇÔ¼ö
+// í´ë¼ì´ì–¸íŠ¸ í•¸ë“¤ëŸ¬ í•¨ìˆ˜
 void* client_handler(void* arg) {
     int client_sock = *(int*)arg;
     free(arg);
@@ -259,7 +259,7 @@ void* client_handler(void* arg) {
     char room_number[10] = { 0 };
     int client_type = 0;
 
-    // Å¬¶óÀÌ¾ðÆ® Á¾·ù¿Í ¹æ ¹øÈ£ ÆÄ¾Ç
+    // í´ë¼ì´ì–¸íŠ¸ ì¢…ë¥˜ì™€ ë°© ë²ˆí˜¸ íŒŒì•…
     recv(client_sock, buffer, sizeof(buffer), 0);
     if (sscanf(buffer, "ESP32:room_%s", room_number) == 1) {
         client_type = CLIENT_TYPE_ESP;
@@ -269,7 +269,7 @@ void* client_handler(void* arg) {
             add_room_node(room_node);
         }
         else if (room_node->esp_sock != -1) {
-            close(room_node->esp_sock); // ±âÁ¸ ¿¬°áµÈ ¼ÒÄÏÀ» ´ÝÀ½
+            close(room_node->esp_sock); // ê¸°ì¡´ ì—°ê²°ëœ ì†Œì¼“ì„ ë‹«ìŒ
         }
         room_node->esp_sock = client_sock;
         printf("ESP32 room %s connect.\n", room_number);
@@ -282,7 +282,7 @@ void* client_handler(void* arg) {
             add_room_node(room_node);
         }
         else if (room_node->fr_sock != -1) {
-            close(room_node->fr_sock); // ±âÁ¸ ¿¬°áµÈ ¼ÒÄÏÀ» ´ÝÀ½
+            close(room_node->fr_sock); // ê¸°ì¡´ ì—°ê²°ëœ ì†Œì¼“ì„ ë‹«ìŒ
         }
         room_node->fr_sock = client_sock;
         printf("FR room %s connect.\n", room_number);
@@ -292,15 +292,15 @@ void* client_handler(void* arg) {
         printf("WEB connect.\n");
     }
 
-    // ¸Þ½ÃÁö Ã³¸® ·çÇÁ
+    // ë©”ì‹œì§€ ì²˜ë¦¬ ë£¨í”„
     while (1) {
         memset(buffer, 0, BUF_SIZE);
         int bytes_received = recv(client_sock, buffer, sizeof(buffer) - 1, 0);
         if (bytes_received <= 0) {
             printf("client close.\n");
-            break; // Å¬¶óÀÌ¾ðÆ®°¡ ¿¬°áÀ» ²÷¾úÀ» ¶§ ·çÇÁ Á¾·á
+            break; // í´ë¼ì´ì–¸íŠ¸ê°€ ì—°ê²°ì„ ëŠì—ˆì„ ë•Œ ë£¨í”„ ì¢…ë£Œ
         }
-        buffer[bytes_received] = '\0'; // ¹®ÀÚ¿­ Á¾·á
+        buffer[bytes_received] = '\0'; // ë¬¸ìžì—´ ì¢…ë£Œ
         if (client_type == CLIENT_TYPE_WEB) {
             handle_web_message(client_sock, buffer, conn);
         }
@@ -310,14 +310,14 @@ void* client_handler(void* arg) {
 
     }
 
-    // Å¬¶óÀÌ¾ðÆ® ¼ÒÄÏ ´Ý±â ¹× ¹æ ³ëµå »èÁ¦
+    // í´ë¼ì´ì–¸íŠ¸ ì†Œì¼“ ë‹«ê¸° ë° ë°© ë…¸ë“œ ì‚­ì œ
     RoomNode* room_node = find_room_node(room_number);
     if (client_type == CLIENT_TYPE_ESP) {
-        if (room_node) room_node->esp_sock = -1; // ESP32 ¼ÒÄÏ ÃÊ±âÈ
+        if (room_node) room_node->esp_sock = -1; // ESP32 ì†Œì¼“ ì´ˆê¸°
 	printf("ESP close\n");
     }
     else if (client_type == CLIENT_TYPE_FR) {
-        if (room_node) room_node->fr_sock = -1; // FR ¼ÒÄÏ ÃÊ±âÈ­
+        if (room_node) room_node->fr_sock = -1; // FR ì†Œì¼“ ì´ˆê¸°í™”
 	printf("FR close\n");
     }
 	else if (client_type == CLIENT_TYPE_WEB){
@@ -326,8 +326,8 @@ void* client_handler(void* arg) {
 	}
     close(client_sock);
     if ((room_node->fr_sock == -1) && (room_node->esp_sock == -1))
-        delete_room_node(room_number); // ¹æ ³ëµå »èÁ¦
-    mysql_close(conn); // DB ¿¬°á Á¾·á
+        delete_room_node(room_number); // ë°© ë…¸ë“œ ì‚­ì œ
+    mysql_close(conn); // DB ì—°ê²° ì¢…ë£Œ
     return NULL;
 }
 
