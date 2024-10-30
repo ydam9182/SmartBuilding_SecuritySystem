@@ -4,5 +4,7 @@
 - 앞면, 작은 조립물들 : 아크릴5t / 옆,후면 : 포맥스5t / 하단 : MDF9t
 - 현재는 전체 다 CNC로 제작했지만 가능하면 아크릴과 MDF는 레이저 커팅을 하는 것을 추천(모서리의 정확한 표현을 위해)
 
+
+
 # * 파일 이미지
 ![CNC제작 도면](https://github.com/user-attachments/assets/834a2619-4bf9-4450-88fe-c8feef1739b6)
