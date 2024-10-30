@@ -1,4 +1,4 @@
-![header](https://capsule-render.vercel.app/api?type=waving&color=gradient&height=250&section=header&text=SmartBuilding%20Securitysystem!&fontAlignY=20)
+![header](https://capsule-render.vercel.app/api?type=waving&color=gradient&height=250&section=header&text=SmartBuilding%20Securitysystem&fontSize=40&fontAlignY=20)
 
 
 ![footer](https://capsule-render.vercel.app/api?type=waving&color=gradient&height=250&section=footer&text=Thank%20you&fontSize=30)
