@@ -1,8 +1,8 @@
 ![header](https://capsule-render.vercel.app/api?type=waving&&&color=0:00BCF2,100:2158A8&height=250&width=867.2&section=header&text=SmartBuilding%20SecuritySystem&fontSize=40&fontAlignY=40&fontColor=FFFFFF)
 
 ## 하드웨어 구성도
-<img src = "https://github.com/user-attachments/assets/9384605b-7ab4-4998-8b3f-5787241844e6" width="40%" height="40%">
-<img src = "https://github.com/user-attachments/assets/cf2842a1-de05-4e66-b96a-5239b828aab2" width="40%" height="40%">
+<img src = "https://github.com/user-attachments/assets/9384605b-7ab4-4998-8b3f-5787241844e6" width="45%" height="45%">
+<img src = "https://github.com/user-attachments/assets/cf2842a1-de05-4e66-b96a-5239b828aab2" width="35%" height="35%">
 
 ## 시스템 구성도
 <img src = "https://github.com/user-attachments/assets/de16e779-babc-4d73-aab6-fff3196a56a6" width="85%" height="85%">
