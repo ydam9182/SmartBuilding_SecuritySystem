@@ -11,4 +11,4 @@
 <img src = "https://github.com/user-attachments/assets/64728c41-3f45-49c9-a907-00870a79c337" width="80%" height="80%">
 
 
-![footer](https://capsule-render.vercel.app/api?type=waving&&&color=0:2158A8,100:00BCF2&height=170&section=footer&text=Thank%20you&&fontAlignY=70&fontSize=30&fontColor=FFFFFF)
+![footer](https://capsule-render.vercel.app/api?type=waving&&&color=0:2158A8,100:00BCF2&height=170&section=footer&text=Thank%20you&&fontAlignY=80&fontSize=20&fontColor=FFFFFF)
