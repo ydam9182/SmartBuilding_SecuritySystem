@@ -4,7 +4,7 @@
 
 
 ## 시스템 구성도
-![report-01](https://github.com/user-attachments/assets/4b571e7a-57f2-43de-a211-b66a75b0563c)
+![Artboard 1](https://github.com/user-attachments/assets/de16e779-babc-4d73-aab6-fff3196a56a6)
 
 ## 플로우차트
 ![report-02](https://github.com/user-attachments/assets/64728c41-3f45-49c9-a907-00870a79c337)
